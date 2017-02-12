@@ -1,0 +1,42 @@
+<ul class="nav nav-justified justify-content-center bg-inverse nav-fill nav-header fixed-top">
+  <li class="nav-item">
+    <a class="nav-link text-left" [routerLink]="['/']"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">New</a>
+  </li>
+  <li class="nav-item">
+    <!--<a class="nav-link text-right text-success" [ngClass]="{disabled: !f.valid}" (click)="f.submit()">Save</a>-->
+  </li>
+</ul>
+
+<div class="container-fluid main-container">
+  <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+
+    <!-- Rounded switch -->
+    <div class="onoffswitch" *ngIf="isAdd">
+      <input type="checkbox" name="fromMY" class="onoffswitch-checkbox" id="fromMY" ngModel>
+      <label class="onoffswitch-label" for="fromMY">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="要吐槽的话题" [ngModel]="item?.topic" name="topic" required>
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" rows="5" placeholder="内容" [ngModel]="item?.content" name="content" required></textarea>
+    </div>
+
+    <div class="form-group" *ngIf="!isAdd">
+      <input class="form-control" type="date" id="date" [ngModel]="item?.date | date:'y-MM-dd'" name="date" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!f.valid">
+      <span *ngIf="isAdd">Add to </span> 
+      <span *ngIf="!isAdd">Update </span> 
+      Agenda
+    </button>
+  </form>
+</div>

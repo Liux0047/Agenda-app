@@ -1,0 +1,15 @@
+<ul class="nav nav-justified justify-content-center bg-inverse nav-fill nav-header fixed-top">
+  <li class="nav-item">
+    <a class="nav-link"></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">Agenda</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-right text-warning" [routerLink]="['/new']"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></a>
+  </li>
+</ul>
+
+<div class="container-fluid main-container">
+  <app-agenda-item *ngFor="let item of agendaItems | slice:0:21; let i = index" [agendaItem]="item" [itemIndex]="i"></app-agenda-item>
+</div>
