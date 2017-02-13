@@ -10,6 +10,8 @@ import { AgendaComponent } from './agenda/agenda.component';
 import { AgendaListComponent } from './agenda/agenda-list/agenda-list.component';
 import { AgendaItemComponent } from './agenda/agenda-item/agenda-item.component';
 import { AgendaEditComponent } from './agenda/agenda-edit/agenda-edit.component';
+import { NewOnlyPipe } from './agenda/new-only.pipe';
+import { FilterByKeywordPipe } from './agenda/filter-by-keyword.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AgendaEditComponent } from './agenda/agenda-edit/agenda-edit.component'
     AgendaComponent,
     AgendaListComponent,
     AgendaItemComponent,
-    AgendaEditComponent
+    AgendaEditComponent,
+    NewOnlyPipe,
+    FilterByKeywordPipe
   ],
   imports: [
     BrowserModule,

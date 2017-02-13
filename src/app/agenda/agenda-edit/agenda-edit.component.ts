@@ -45,6 +45,13 @@ export class AgendaEditComponent implements OnInit, OnDestroy {
     this.navigateBack();
   }
 
+  onDelete() {
+    if (confirm()) {
+      this.as.deleteAgenda(this.itemIndex);
+      this.navigateBack();
+    }
+  }
+
   private navigateBack() {
     this.router.navigate(['../']);
   }

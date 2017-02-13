@@ -1,17 +1,23 @@
 import { Agenda } from './agenda';
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter, isDevMode } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
 export class AgendaService {
-  private url = 'https://agenda-app-3097b.firebaseio.com/agenda.json';
+  private url = isDevMode() ?
+    'https://agenda-app-3097b.firebaseio.com/agenda-tst.json' :
+    'https://agenda-app-3097b.firebaseio.com/agenda.json';
   private agendas: Agenda[] = [];
   // private agendas: Agenda[] = [
-  //   new Agenda('KD 打老东家', 'Kevin Durant and former teammates got emotional, fans even more so', new Date(), false, false),
-  //   new Agenda('练手 Angular', '嗯，搞了个这个小网页玩', new Date(), false, false),
-  //   new Agenda('Python 狂魔', '用半小时写了个Python来完成五分钟的 manual work,这是一种乐趣', new Date(2017, 1, 10), false, true),
-  //   new Agenda('吃火锅', '火锅底料不错，吃撑了堂睡着了', new Date(2017, 1, 11), true, true),
+    // new Agenda('KD 打老东家', 'Kevin Durant and former teammates got emotional, fans even more so', new Date(), false, false),
+    // new Agenda('练手 Angular', '嗯，搞了个这个小网页玩', new Date(), false, false),
+    // new Agenda('Python 狂魔', '用半小时写了个Python来完成五分钟的 manual work,这是一种乐趣', new Date(2017, 1, 10), false, true),
+    // new Agenda('吃火锅', '火锅底料不错，吃撑了堂睡着了', new Date(2017, 1, 11), true, true),
+    // new Agenda('KD 打老东家', 'Kevin Durant and former teammates got emotional, fans even more so', new Date(), false, false),
+    // new Agenda('练手 Angular', '嗯，搞了个这个小网页玩', new Date(), false, false),
+    // new Agenda('Python 狂魔', '用半小时写了个Python来完成五分钟的 manual work,这是一种乐趣', new Date(2017, 1, 10), false, true),
+    // new Agenda('吃火锅', '火锅底料不错，吃撑了堂睡着了', new Date(2017, 1, 11), true, true),
   // ];
 
   private selectedAgenda: Agenda = null;
@@ -40,6 +46,10 @@ export class AgendaService {
 
   updateAgenda(old: Agenda, newItem: Agenda) {
     this.agendas[this.agendas.indexOf(old)] = newItem;
+  }
+
+  deleteAgenda(itemIndex: number) {
+    this.agendas.splice(itemIndex, 1);
   }
 
   storeData() {

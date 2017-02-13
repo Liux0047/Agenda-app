@@ -1,0 +1,16 @@
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: rgba(245, 245, 245, 0.96);
+}
+
+.search-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.search-container .form-group {
+    margin-bottom: 0px;
+}

@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class AgendaListComponent implements OnInit {
 
   private agendaItems: Agenda[] = null;
+  private isNewOnly = true;
+
   constructor(private as: AgendaService) { }
 
   ngOnInit() {
@@ -17,6 +19,18 @@ export class AgendaListComponent implements OnInit {
     this.as.agendasChanged.subscribe(
       (agendas: Agenda[]) => this.agendaItems = agendas
     );
+  }
+
+  viewNewOnly() {
+    this.isNewOnly = true;
+  }
+
+  viewAll() {
+    this.isNewOnly = false;
+  }
+
+  log(s: string) {
+    console.log(s);
   }
 
 }

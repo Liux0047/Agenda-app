@@ -1,16 +1,22 @@
 <ul class="nav nav-justified justify-content-center bg-inverse nav-fill nav-header fixed-top">
   <li class="nav-item">
-    <a class="nav-link text-left" [routerLink]="['/']"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+    <a class="nav-link text-left" [routerLink]="['/']"><i class="fa fa-chevron-left" aria-hidden="true"></i> 返回</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link">New</a>
+    <a class="nav-link" *ngIf="isAdd">添加</a>
+    <a class="nav-link" *ngIf="!isAdd">编辑</a>
   </li>
   <li class="nav-item">
-    <!--<a class="nav-link text-right text-success" [ngClass]="{disabled: !f.valid}" (click)="f.submit()">Save</a>-->
+    <a class="nav-link text-right" *ngIf="!isAdd" (click)="onDelete()"><i class="fa fa-trash-o" aria-hidden="true"></i> </a>
+  </li>
+</ul>
+<ul class="nav nav-justified justify-content-center bg-inverse nav-fill nav-header">
+  <li class="nav-item">
+    <a class="nav-link">Hidden</a>
   </li>
 </ul>
 
-<div class="container-fluid main-container">
+<div class="container-fluid edit-container">
   <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
 
     <!-- Rounded switch -->
@@ -26,7 +32,7 @@
       <input type="text" class="form-control" placeholder="要吐槽的话题" [ngModel]="item?.topic" name="topic" required>
     </div>
     <div class="form-group">
-      <textarea class="form-control" rows="5" placeholder="内容" [ngModel]="item?.content" name="content" required></textarea>
+      <textarea class="form-control" rows="5" placeholder="内容" [ngModel]="item?.content" name="content"></textarea>
     </div>
 
     <div class="form-group" *ngIf="!isAdd">
@@ -34,8 +40,8 @@
     </div>
 
     <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!f.valid">
-      <span *ngIf="isAdd">Add to </span> 
-      <span *ngIf="!isAdd">Update </span> 
+      <span *ngIf="isAdd">加入 </span> 
+      <span *ngIf="!isAdd">保存 </span> 
       Agenda
     </button>
   </form>
