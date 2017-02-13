@@ -18,7 +18,7 @@
 <div class="main-container">
   <div class="container-fluid bg-faded search-container">
     <div class="form-group">
-      <input type="text" class="form-control" id="keyword" placeholder="搜索关键字" #keyword (keyup)="0" (keypress)="0">
+      <input type="text" class="form-control" id="keyword" placeholder="搜索关键字" #keyword (keyup)="0" (input)="0">
     </div>
   </div>
   <app-agenda-item *ngFor="let item of agendaItems | newOnly:isNewOnly | filterByKeyword:keyword.value" [agendaItem]="item"></app-agenda-item>
