@@ -43,7 +43,7 @@ export class AgendaEditComponent implements OnInit, OnDestroy {
   }
 
   onDelete() {
-    if (confirm()) {
+    if (confirm('确定要删除该 Agenda 吗？')) {
       this.as.deleteAgenda(this.item);
       this.navigateBack();
     }
