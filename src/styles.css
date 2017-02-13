@@ -4,11 +4,17 @@ body {
 }
 
 .nav.bg-inverse a{
-    color: #ffffff;
+    color: #fff;
 }
 
 .nav-fill .nav-item {
     font-size: 1.3em;
+}
+
+.nav.hidden {
+    background-color: transparent;
+    color: #fff;
+    opacity: 0;
 }
 
 a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {

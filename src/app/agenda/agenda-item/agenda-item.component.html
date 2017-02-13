@@ -14,6 +14,6 @@
       <span class="badge badge-info" *ngIf="!agendaItem.fromMY">LX</span>
     </p>
     <p class="card-text">{{agendaItem.content}}</p>
-    <a class="btn btn-primary" *ngIf="!agendaItem.talked" (click)="markTalked(itemIndex)">标记已聊</a>
+    <a class="btn btn-primary" *ngIf="!agendaItem.talked" (click)="markTalked()">标记已聊</a>
   </div>
 </div>

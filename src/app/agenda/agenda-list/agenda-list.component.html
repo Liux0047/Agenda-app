@@ -9,9 +9,9 @@
     <a class="nav-link text-right text-warning" [routerLink]="['/new']"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i></a>
   </li>
 </ul>
-<ul class="nav nav-justified justify-content-center bg-inverse nav-fill nav-header">
+<ul class="nav nav-fill hidden">
   <li class="nav-item">
-    <a class="nav-link">Hidden</a>
+    <a class="nav-link">hidden</a>
   </li>
 </ul>
 
@@ -21,8 +21,7 @@
       <input type="text" class="form-control" id="keyword" placeholder="搜索关键字" #keyword (keyup)="0">
     </div>
   </div>
-  <app-agenda-item *ngFor="let item of agendaItems | newOnly:isNewOnly | filterByKeyword:keyword.value; let i = index" [agendaItem]="item"
-    [itemIndex]="i"></app-agenda-item>
+  <app-agenda-item *ngFor="let item of agendaItems | newOnly:isNewOnly | filterByKeyword:keyword.value" [agendaItem]="item"></app-agenda-item>
 </div>
 
 <footer class="footer fixed-bottom text-center">

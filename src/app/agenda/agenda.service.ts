@@ -35,8 +35,12 @@ export class AgendaService {
     return this.agendas[i];
   }
 
-  markTalked(itemIndex: number) {
-    this.agendas[itemIndex].talked = true;
+  getAgendaIndex(item: Agenda) {
+    return this.agendas.indexOf(item);
+  }
+
+  markTalked(item: Agenda) {
+    this.agendas[this.agendas.indexOf(item)].talked = true;
     this.storeData();
   }
 
@@ -48,8 +52,8 @@ export class AgendaService {
     this.agendas[this.agendas.indexOf(old)] = newItem;
   }
 
-  deleteAgenda(itemIndex: number) {
-    this.agendas.splice(itemIndex, 1);
+  deleteAgenda(item: Agenda) {
+    this.agendas.splice(this.agendas.indexOf(item), 1);
   }
 
   storeData() {

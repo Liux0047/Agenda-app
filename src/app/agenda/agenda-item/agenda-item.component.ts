@@ -9,7 +9,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./agenda-item.component.css']
 })
 export class AgendaItemComponent implements OnInit {
-  @Input() itemIndex: number;
   @Input() agendaItem: Agenda;
 
   constructor(private as: AgendaService, private route: ActivatedRoute, private router: Router) { }
@@ -17,12 +16,12 @@ export class AgendaItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  markTalked(itemIndex: number) {
-    this.as.markTalked(itemIndex);
+  markTalked() {
+    this.as.markTalked(this.agendaItem);
   }
 
   onEditItem() {
-    this.router.navigate(['/', this.itemIndex, 'edit']);
+    this.router.navigate(['/', this.as.getAgendaIndex(this.agendaItem), 'edit']);
   }
 
 }

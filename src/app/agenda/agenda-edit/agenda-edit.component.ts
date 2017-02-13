@@ -1,16 +1,13 @@
 import { AgendaService } from './../agenda.service';
 import { Agenda } from './../agenda';
-import {
-  Component, OnInit, Input, OnDestroy,
-  trigger, state, style, transition, animate
-} from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-agenda-edit',
   templateUrl: './agenda-edit.component.html',
-  styleUrls: ['./agenda-edit.component.css'],
+  styleUrls: ['./agenda-edit.component.css']
 })
 export class AgendaEditComponent implements OnInit, OnDestroy {
   item: Agenda = null;
@@ -47,7 +44,7 @@ export class AgendaEditComponent implements OnInit, OnDestroy {
 
   onDelete() {
     if (confirm()) {
-      this.as.deleteAgenda(this.itemIndex);
+      this.as.deleteAgenda(this.item);
       this.navigateBack();
     }
   }
